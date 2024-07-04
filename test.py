@@ -8,8 +8,12 @@ service = Service(executable_path=ChromeDriverManager().install())
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 
+# Управление навигацией браузера
 driver.get("https://unsplash.com/")
-time.sleep(5) # В качестве аргумента принимает кол-во секунд для паузы
-
-
-
+time.sleep(5)
+driver.back()
+time.sleep(5)
+driver.forward()
+time.sleep(5)
+driver.refresh()
+time.sleep(5)
