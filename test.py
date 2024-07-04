@@ -16,4 +16,5 @@ time.sleep(5)
 driver.forward()
 time.sleep(5)
 driver.refresh()
-time.sleep(5)
+time.sleep(10)
+git co
