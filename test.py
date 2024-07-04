@@ -17,4 +17,3 @@ driver.forward()
 time.sleep(5)
 driver.refresh()
 time.sleep(10)
-git co
