@@ -10,10 +10,25 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 # Управление навигацией браузера
 driver.get("https://unsplash.com/")
-time.sleep(5)
+time.sleep(3)
 driver.back()
-time.sleep(5)
+time.sleep(3)
 driver.forward()
-time.sleep(5)
+time.sleep(3)
 driver.refresh()
-time.sleep(10)
+time.sleep(3)
+
+
+driver.get("https://ru.wikipedia.org/")
+url = driver.current_url    # Получаем текущий URL-адрес в переменную,
+print("URL страницы: ", url) # Выводим значение переменной
+assert url == "https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0" , "Ошибка в URL"
+
+current_tittle = driver.title # Записываем значение title в переменную current_title
+print("Текущий заголовок: ", current_tittle) # Выводим значение переменной на экран
+assert current_tittle == "Википедия — свободная энциклопедия", "Неверный заголовок"
+
+#PAGE_SOURCE = driver.page_source # Записываем в переменную всю веб-страницу
+#print(PAGE_SOURCE) # Печатаем HTML-код в терминал
+
+time.sleep(3)
