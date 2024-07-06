@@ -31,4 +31,30 @@ assert current_tittle == "Википедия — свободная энцик�
 #PAGE_SOURCE = driver.page_source # Записываем в переменную всю веб-страницу
 #print(PAGE_SOURCE) # Печатаем HTML-код в терминал
 
-time.sleep(3)
+
+# Lesson 4 Home Work, использую юраузер Фаерфоекс
+
+from selenium import webdriver
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.firefox.service import Service
+
+service = Service(GeckoDriverManager().install())
+driver = webdriver.Firefox(service=service)
+
+driver.get("https://vk.com/")
+url = driver.current_url    # Получаем текущий URL-адрес в переменную,
+tittleVK = driver.title # Записываем значение title в переменную title
+print("Текущий заголовок: ", tittleVK) # Выводим значение переменной на экран
+driver.get("https://dzen.ru/")
+tittleYA = driver.title # Записываем значение title в переменную title
+print("Текущий заголовок: ", tittleYA) # Выводим значение переменной на экран
+driver.back()
+assert tittleVK == "ВКонтакте | Добро пожаловать", "Неверный заголовок" # Делаем проверку на заголовок страницы
+assert url == "https://vk.com/" , "Ошибка в URL" # Делаем проверку на URL страницы
+driver.refresh()
+print(driver.current_url)
+driver.forward()
+print(driver.current_url)
+assert driver.current_url == "https://dzen.ru/" , "Ошибка в URL" # Делаем проверку на текущий URL страницы
+
+print("Все шаги теста пройдены успешно!)")
