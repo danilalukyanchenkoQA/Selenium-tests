@@ -58,3 +58,6 @@ print(driver.current_url)
 assert driver.current_url == "https://dzen.ru/" , "Ошибка в URL" # Делаем проверку на текущий URL страницы
 
 print("Все шаги теста пройдены успешно!)")
+
+# Lesson 5 Поиск веб-элементов
+
