@@ -66,11 +66,24 @@ print("Открылся твой локальный стенд)")
 driver.find_element("name", "user").send_keys("ваш email")
 driver.find_element("name", "password").send_keys("ваш пароль")
 driver.find_element("class name","css-1b7vft8-button").click()
-time.sleep(3)
+
 
 # Записываем логин и пароль в переменную и пробуем еще раз залогиниться
 email = driver.find_element("name", "user")
 password = driver.find_element("name", "password")
 email.send_keys("1")
 password.send_keys("2")
-time.sleep(3)
+
+
+# Работа со списками элементов
+
+
+elements = ["one", "two", "three"]
+print(elements[0])
+
+
+driver.get("http://localhost:3000/")
+print(len(driver.find_elements("class name", "css-1riaxdn"))) # Если на странице несколько элементов с одинаковым классом, то выводим в консоль количество таких одинаковых элементов
+print(driver.find_elements("class name","css-1riaxdn")[1]) # Выводим нужный нам элемент в консоли
+driver.find_elements("class name","css-1riaxdn")[1].click() # Кликаем по нужному нам id элемента так как на странице элементов с таким class name несколько
+print(("Все шаги теста пройдены успешно)"))
