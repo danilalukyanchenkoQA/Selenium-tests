@@ -32,7 +32,7 @@ assert current_tittle == "Википедия — свободная энцик�
 #print(PAGE_SOURCE) # Печатаем HTML-код в терминал
 
 
-# Lesson 4 Home Work, использую юраузер Фаерфоекс
+# Lesson 4 Home Work, использую браузер Фаерфоекс
 
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
@@ -59,5 +59,18 @@ assert driver.current_url == "https://dzen.ru/" , "Ошибка в URL" # Дел
 
 print("Все шаги теста пройдены успешно!)")
 
-# Lesson 5 Поиск веб-элементов
+# Lesson 5 Поиск веб-элементов и ввод текста в поля
 
+driver.get("http://localhost:3000/")
+print("Открылся твой локальный стенд)")
+driver.find_element("name", "user").send_keys("ваш email")
+driver.find_element("name", "password").send_keys("ваш пароль")
+driver.find_element("class name","css-1b7vft8-button").click()
+time.sleep(3)
+
+# Записываем логин и пароль в переменную и пробуем еще раз залогиниться
+email = driver.find_element("name", "user")
+password = driver.find_element("name", "password")
+email.send_keys("1")
+password.send_keys("2")
+time.sleep(3)
